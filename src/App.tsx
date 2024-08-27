@@ -3,14 +3,16 @@ import Creator from './interfaces/Creator';
 import { AddCreator, EditCreator, ViewCreator, ShowCreators } from './pages';
 import {supabase} from "./client"
 import './App.css'
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [creators, setCreators] = useState<Creator[]>([]);
+
 
   const routes = useRoutes([
     {
       "path": "/",
-      "element": <ShowCreators />
+      "element": <ShowCreators creators={creators}/>
     },
     {
       "path": "/new",
@@ -36,7 +38,7 @@ function App() {
   }
 
   useEffect(() => {
-    fetchCreatorData();
+    fetchCreatorData().then(setCreators).catch(console.error);
   }, []);
 
   return (
