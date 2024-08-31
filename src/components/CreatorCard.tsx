@@ -12,7 +12,6 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
   return (
     <div className="creator-card" style={{ cursor: "pointer" }}>
       <h1> Creator Card </h1>
-      {/* i icon to edit the creator */}
       <button
         onClick={() => {
           navigate(`/edit/${creator.id}`);
