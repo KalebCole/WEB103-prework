@@ -4,6 +4,7 @@ import Creator from "./interfaces/Creator";
 import { supabase } from "./client";
 import { AddCreator, EditCreator, ShowCreators, ViewCreator } from "./pages";
 import "./App.css";
+import "./styles.css";
 
 const App: React.FC = () => {
   const [creators, setCreators] = useState<Creator[]>([]);
@@ -40,7 +41,7 @@ const App: React.FC = () => {
     },
   ]);
 
-  return <>{routes}</>;
+  return <div className="container">{routes}</div>;
 };
 
 export default App;

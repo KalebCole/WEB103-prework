@@ -12,18 +12,19 @@ const ShowCreators: React.FC<ShowCreatorsProps> = ({ creators }) => {
 
   return (
     <>
-      <h1> Show Creators </h1>
+      <h1>Show Creators</h1>
       <div>
         <button onClick={() => navigate("/new")}>Add</button>
       </div>
-
-      {creators && creators.length > 0 ? (
-        creators.map((creator) => (
-          <CreatorCard key={creator.id} creator={creator} />
-        ))
-      ) : (
-        <h2> No creators yet</h2>
-      )}
+      <div className="grid">
+        {creators && creators.length > 0 ? (
+          creators.map((creator) => (
+            <CreatorCard key={creator.id} creator={creator} />
+          ))
+        ) : (
+          <h2>No creators yet</h2>
+        )}
+      </div>
     </>
   );
 };
