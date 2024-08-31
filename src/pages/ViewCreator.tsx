@@ -7,7 +7,7 @@ import Creator from "../interfaces/Creator";
 
 export default function ViewCreator(){
     const { id } = useParams();
-    const [creator, setCreator] = useState<Creator>(null);
+    const [creator, setCreator] = useState<Creator | null>(null);
 
     const fetchCreatorDataById = async () => {
         const { data, error } = await supabase.from("creators").select("*").eq("id", id).single();
@@ -25,7 +25,7 @@ export default function ViewCreator(){
     return (
         <>
         <h1> View Creator </h1>
-        <h2>{creator.name}</h2>
+        <h2>{creator?.name}</h2>
 
         </>
     )
