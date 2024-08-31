@@ -19,7 +19,7 @@ The following **required** functionality is completed:
 - [x] **Clicking on a content creator item takes the user to their details page, which includes their name, url, and description**
 - [x] **Each content creator has their own unique URL**
 - [x] **The user can edit a content creator to change their name, url, or description**
-- [] **The user can delete a content creator**
+- [X] **The user can delete a content creator**
 - [x] **The user can add a new content creator by entering a name, url, or description and then it is displayed on the homepage**
 
 The following **optional** features are implemented:
@@ -32,7 +32,7 @@ The following **optional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
-<img src='https://i.imgur.com/wxv5FYd.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/A2mp9e4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with LiceCAP
 
