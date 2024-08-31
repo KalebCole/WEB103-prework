@@ -11,6 +11,8 @@ export default function AddCreator() {
   const [imageURL, setImageURL] = useState<string>("");
   const [formError, setFormError] = useState<string>("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     if (!(name.length > 0 && url.length > 0)) {
@@ -32,6 +34,9 @@ export default function AddCreator() {
           console.log("No data returned from the insert operation");
         }
         setFormError("");
+      }
+      if(formError === ""){
+        navigate("/")
       }
   };
 
