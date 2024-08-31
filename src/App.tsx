@@ -36,7 +36,7 @@ const App: React.FC = () => {
     },
     {
       path: "/view/:id",
-      element: <ViewCreator />,
+      element: <ViewCreator setCreators={setCreators} />,
     },
   ]);
 
