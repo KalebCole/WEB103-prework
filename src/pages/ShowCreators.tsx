@@ -9,11 +9,11 @@ interface ShowCreatorsProps {
 
 const ShowCreators: React.FC<ShowCreatorsProps> = ({ creators }) => {
   const navigate = useNavigate();
+
   return (
     <>
       <h1> Show Creators </h1>
       <div>
-        {/* <button onClick={() => navigate("/")}>View All Creators</button> */}
         <button onClick={() => navigate("/new")}>Add</button>
       </div>
 
