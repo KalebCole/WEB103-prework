@@ -4,7 +4,11 @@ import Creator from "../interfaces/Creator";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function AddCreator() {
+interface AddCreatorProps {
+  setCreators: React.Dispatch<React.SetStateAction<Creator[]>>;
+}
+
+const AddCreator: React.FC<AddCreatorProps> = ({ setCreators }) => {
   const [name, setName] = useState<string>("");
   const [url, setUrl] = useState<string>("");
   const [description, setDescription] = useState<string>("");
@@ -22,22 +26,22 @@ export default function AddCreator() {
 
     const { data, error } = await supabase
       .from("creators")
-      .insert([{ name, url, description, imageURL }]);
+      .insert([{ name, url, description, imageURL }])
+      .select();
 
-      if (error) {
-        console.error("Error adding creator:", error);
-        setFormError("Please fill in all the fields correctly");
-      } else {
-        if (data) {
-          console.log("Creator added successfully:", data);
-        } else {
-          console.log("No data returned from the insert operation");
-        }
+    if (error) {
+      console.error("Error adding creator:", error);
+      setFormError("Please fill in all the fields correctly");
+    } else {
+      if (data) {
+        console.log("Creator added successfully:", data);
         setFormError("");
+        setCreators((prevCreators) => [...prevCreators, ...(data ?? [])]);
+        navigate("/");
+      } else {
+        console.log("No data returned from the insert operation");
       }
-      if(formError === ""){
-        navigate("/")
-      }
+    }
   };
 
   return (
@@ -88,4 +92,6 @@ export default function AddCreator() {
       </form>
     </>
   );
-}
+};
+
+export default AddCreator;
